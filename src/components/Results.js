@@ -18,7 +18,7 @@ const Results = (props) => {
       <ResultCard
         key={index}
         name={topAnime.name}
-        japaneseName={topAnime.nameJapanese}
+        japaneseName={topAnime.japaneseName}
         imgSrc={topAnime.image}
         synopsis={topAnime.synopsis}
         status={topAnime.showStatus}

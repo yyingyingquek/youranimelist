@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from "react";
 import Results from "./Results";
+import SearchContainer from "./SearchContainer";
 import styled from "styled-components";
 
 const TestContainer = styled.div`
   background-color: #f5f5f5;
 `;
 
+const StyleSearchContainer = styled.div`
+  justify-content: right;
+  alight-items: right;
+  display: flex;
+  padding: 10px;
+`;
+
 const HomePage = () => {
   const [topAnime, setTopAnime] = useState([]);
+  const [search, setSearch] = useState(false)
 
   const fetchTopAnime = async () => {
     const url = "https://api.jikan.moe/v4/top/anime";
@@ -18,7 +27,7 @@ const HomePage = () => {
     const filteredTopAnime = data.data.map((topAnime) => {
       return {
         name: topAnime.title,
-        nameJapanese: topAnime.title_japanese,
+        japaneseName: topAnime.title_japanese,
         image: topAnime.images.jpg.image_url,
         synopsis: topAnime.synopsis,
         showStatus: topAnime.status,
@@ -37,6 +46,9 @@ const HomePage = () => {
 
   return (
     <TestContainer>
+      <StyleSearchContainer>
+        <SearchContainer />
+      </StyleSearchContainer>
       <h2>Top Anime</h2>
       <Results topAnime={topAnime} />
     </TestContainer>
