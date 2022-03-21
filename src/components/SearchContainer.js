@@ -1,28 +1,25 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import SearchInput from "./SearchInput";
+// import styled from "styled-components";
+import Results from "./Results";
 
-const SearchContainerStyle = styled.form`
-  justify-content: right;
-  alight-content: right;
-  display: inline;
-`;
+// const SearchContainerStyle = styled.form`
+//   justify-content: right;
+//   alight-content: right;
+//   display: inline;
+// `;
 
 const SearchContainer = () => {
-  const [searchInput, setSearchInput] = useState("");
-  const [searchAnime, setSearchAnime] = useState("");
+  const [input, setInput] = useState("");
+  const [searchAnime, setSearchAnime] = useState([]);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const handleInputChange = (event) => {
-    setSearchInput(event.target.value);
+    setInput(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setSearchInput("");
-  };
-
+  // searching for anime
   const fetchSearchAnime = async () => {
-    const url = `https://api.jikan.moe/v4/anime?q=${searchInput}`;
+    const url = `https://api.jikan.moe/v4/anime?q=${input}`;
 
     const response = await fetch(url);
     const data = await response.json();
@@ -43,17 +40,34 @@ const SearchContainer = () => {
 
   useEffect(() => {
     fetchSearchAnime();
+    console.log(input);
+    setHasSearched(true);
   }, []);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    fetchSearchAnime();
+    setInput("");
+    console.log("hello test search");
+  };
+
+  // const searchAgain = () => {
+  //   setHasSearched(false);
+  // };
+
   return (
-    <SearchContainerStyle>
-      <SearchInput
-        handleInputChange={handleInputChange}
-        handleSubmit={handleSubmit}
-        type="text"
-        placeholder="Find an anime"
-      />
-    </SearchContainerStyle>
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          value={input}
+          onChange={handleInputChange}
+          type="search"
+          placeholder="Find an anime"
+        ></input>
+        <button type="submit">Search</button>
+      </form>
+      {hasSearched ? <Results anime={searchAnime} /> : ""}
+    </>
   );
 };
 

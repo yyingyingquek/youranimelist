@@ -13,25 +13,25 @@ const ResultsContainer = styled.div`
 `;
 
 const Results = (props) => {
-  const mapTopAnime = props.topAnime.map((topAnime, index) => {
+  const mapAnime = props.anime.map((anime, index) => {
     return (
       <ResultCard
         key={index}
-        name={topAnime.name}
-        japaneseName={topAnime.japaneseName}
-        imgSrc={topAnime.image}
-        synopsis={topAnime.synopsis}
-        status={topAnime.showStatus}
-        malRanking={topAnime.rank}
-        yearReleased={topAnime.yearBroadcast}
-        url={topAnime.url}
+        name={anime.name}
+        japaneseName={anime.japaneseName}
+        imgSrc={anime.image}
+        synopsis={anime.synopsis}
+        status={anime.showStatus}
+        malRanking={anime.rank}
+        yearReleased={anime.yearBroadcast}
+        url={anime.url}
       />
     );
   });
 
   return (
     <>
-      <ResultsContainer>{mapTopAnime}</ResultsContainer>
+      <ResultsContainer>{mapAnime}</ResultsContainer>
     </>
   );
 };
