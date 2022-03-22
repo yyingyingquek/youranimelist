@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
-// import styled from "styled-components";
+import React, { useState, useEffect, useContext } from "react";
+import styled from "styled-components";
 import Results from "./Results";
+import ThemeContext from "../context/context-theme";
 
-// const SearchContainerStyle = styled.form`
-//   justify-content: right;
-//   alight-content: right;
-//   display: inline;
-// `;
+const SearchContainerStyle = styled.form`
+  justify-content: right;
+  alight-content: right;
+  display: inline;
+  position: relative;
+  top: -1px;
+  left: 450px;
+`;
 
 const SearchContainer = () => {
+  const { activeTheme } = useContext(ThemeContext);
   const [input, setInput] = useState("");
   const [searchAnime, setSearchAnime] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
@@ -56,18 +61,20 @@ const SearchContainer = () => {
   // };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          value={input}
-          onChange={handleInputChange}
-          type="search"
-          placeholder="Find an anime"
-        ></input>
-        <button type="submit">Search</button>
-      </form>
+    <div style={activeTheme}>
+      <div>
+        <SearchContainerStyle onSubmit={handleSubmit}>
+          <input
+            value={input}
+            onChange={handleInputChange}
+            type="search"
+            placeholder="Find an anime"
+          ></input>
+          <button type="submit">Search</button>
+        </SearchContainerStyle>
+      </div>
       {hasSearched ? <Results anime={searchAnime} /> : ""}
-    </>
+    </div>
   );
 };
 

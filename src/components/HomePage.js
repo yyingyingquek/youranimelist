@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Results from "./Results";
-import styled from "styled-components";
-
-const TestContainer = styled.div`
-  background-color: #f5f5f5;
-`;
+import ThemeContext from "../context/context-theme";
+// import ContentModal from "./ContentModal/ContentModal";
 
 const HomePage = () => {
+  const { activeTheme } = useContext(ThemeContext);
   // landing page is top anime - state
   const [topAnime, setTopAnime] = useState([]);
+  // open modal state
+  // const [isOpen, setIsOpen] = useState(false);
 
   // top anime (landing page items)
   const fetchTopAnime = async () => {
@@ -16,7 +16,7 @@ const HomePage = () => {
 
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     const filteredTopAnime = data.data.map((topAnime) => {
       return {
         name: topAnime.title,
@@ -37,10 +37,31 @@ const HomePage = () => {
     fetchTopAnime();
   }, []);
 
+  // open modal function
+  // const openModal = () => {
+  //   setIsOpen(true);
+  // };
+
+  // close modal fn
+  // const closeModal = () => {
+  //   setIsOpen(false);
+  // };
+
   return (
-    <TestContainer>
-      <Results anime={topAnime} />
-    </TestContainer>
+    <>
+      <div style={activeTheme}>
+        {/* <button onClick={() => setIsOpen(true)}>Open Modal</button> */}
+        <Results
+          anime={topAnime}
+          // openModal={openModal}
+          // open={isOpen}
+          // closeModal={closeModal}
+        />
+        {/* <ContentModal open={isOpen} onClose={closeModal} anime={topAnime}>
+          <p>{topAnime.name}</p>
+        </ContentModal> */}
+      </div>
+    </>
   );
 };
 

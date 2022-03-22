@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
+import ThemeContext from "../context/context-theme";
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const { activeTheme } = useContext(ThemeContext);
+
   return (
-    <header className={styles.navbar}>
+    <header className={styles.navbar} style={activeTheme}>
+      <button onClick={props.handleButtonClick}>Toggle Themes</button>
       <nav>
-        <h1>Welcome to YourAnimeList</h1>
+        <h1>
+          Welcome to{" "}
+          <u>
+            <strong>
+              <i>YourAnimeList</i>
+            </strong>
+          </u>
+        </h1>
         <ul>
           <li>
             <NavLink
-              activeclassname={(navData) =>
-                navData.isActive ? styles.active : ""
-              }
+              className={(navData) => (navData.isActive ? styles.active : "")}
               to="/home"
             >
               Home
@@ -20,9 +29,7 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink
-              activeclassname={(navData) =>
-                navData.isActive ? styles.active : ""
-              }
+              className={(navData) => (navData.isActive ? styles.active : "")}
               to="/current-season"
             >
               Current Season
@@ -30,9 +37,7 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink
-              activeclassname={(navData) =>
-                navData.isActive ? styles.active : ""
-              }
+              className={(navData) => (navData.isActive ? styles.active : "")}
               to="/search"
             >
               Search

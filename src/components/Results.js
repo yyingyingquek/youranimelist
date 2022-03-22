@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import ResultCard from "./ResultCard";
+import ThemeContext from "../context/context-theme";
 
 const ResultsContainer = styled.div`
   display: flex;
@@ -13,6 +14,8 @@ const ResultsContainer = styled.div`
 `;
 
 const Results = (props) => {
+  const { activeTheme } = useContext(ThemeContext);
+
   const mapAnime = props.anime.map((anime, index) => {
     return (
       <ResultCard
@@ -29,11 +32,7 @@ const Results = (props) => {
     );
   });
 
-  return (
-    <>
-      <ResultsContainer>{mapAnime}</ResultsContainer>
-    </>
-  );
+  return <ResultsContainer style={activeTheme}>{mapAnime}</ResultsContainer>;
 };
 
 export default Results;

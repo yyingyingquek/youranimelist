@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Results from "../components/Results";
+import ThemeContext from "../context/context-theme";
 
 const CurrentSeason = () => {
+  const { activeTheme } = useContext(ThemeContext);
   const [currentSeason, setCurrentSeason] = useState([]);
 
   // current season
@@ -32,9 +34,9 @@ const CurrentSeason = () => {
   }, []);
 
   return (
-    <>
+    <div style={activeTheme}>
       <Results anime={currentSeason} />
-    </>
+    </div>
   );
 };
 
