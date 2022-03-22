@@ -1,15 +1,15 @@
 .navbar {
-  height: 6rem;
+  height: 8.5rem;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.navbar nav {
-  height: 100%;
-}
+/* .navbar nav {
+  height: 200%;
+} */
 
 .navbar ul {
-  height: 00%;
+  height: 5%;
   list-style: none;
   display: flex;
   padding: 0;
@@ -31,13 +31,9 @@
 .navbar a:hover,
 .navbar a:active,
 .navbar a.active {
-  color: #e4e5f1;
+  color: #9394a5;
   padding-bottom: 0.25rem;
-  border-bottom: 4px solid #e4e5f1;
-}
-
-.navbar strong {
-  font-weight: bold;
+  border-bottom: 3px solid #9394a5;
 }
 
 .navbar h1 {

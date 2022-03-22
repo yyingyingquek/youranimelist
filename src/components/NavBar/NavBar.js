@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
-import ThemeContext from "../context/context-theme";
+import ThemeContext from "../../context/context-theme";
 
 const NavBar = (props) => {
   const { activeTheme } = useContext(ThemeContext);
@@ -13,9 +13,7 @@ const NavBar = (props) => {
         <h1>
           Welcome to{" "}
           <u>
-            <strong>
-              <i>YourAnimeList</i>
-            </strong>
+            <i>YourAnimeList</i>
           </u>
         </h1>
         <ul>
@@ -33,6 +31,14 @@ const NavBar = (props) => {
               to="/current-season"
             >
               Current Season
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={(navData) => (navData.isActive ? styles.active : "")}
+              to="/favourites"
+            >
+              Favourites
             </NavLink>
           </li>
           <li>

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import ThemeContext from "./context/context-theme";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import HomePage from "./components/HomePage";
 import CurrentSeason from "./pages/CurrentSeason";
 import SearchContainer from "./components/SearchContainer";
 import styled from "styled-components";
+import Favourites from "./pages/Favourites";
 
 const theme = {
   light: {
@@ -41,13 +42,13 @@ function App() {
   return (
     <GlobalStyle>
       <ThemeContext.Provider value={{ activeTheme }}>
-        {/* <button onClick={handleButtonClick}>Toggle Themes</button> */}
         <NavBar handleButtonClick={handleButtonClick} />
         <main>
           <Routes>
             <Route path="/" element={<Navigate replace to="/home" />}></Route>
             <Route path="/home" element={<HomePage />}></Route>
             <Route path="/current-season" element={<CurrentSeason />}></Route>
+            <Route path="/favourites" element={<Favourites />}></Route>
             <Route path="/search" element={<SearchContainer />}></Route>
           </Routes>
         </main>

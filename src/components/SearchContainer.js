@@ -8,7 +8,7 @@ const SearchContainerStyle = styled.form`
   alight-content: right;
   display: inline;
   position: relative;
-  top: -1px;
+  top: -30px;
   left: 450px;
 `;
 

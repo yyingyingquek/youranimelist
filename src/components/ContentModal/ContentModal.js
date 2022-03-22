@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import styled from "styled-components";
-// import { MdClose } from "react-icons/md";
+import styled from "styled-components";
+import { MdClose } from "react-icons/md";
 
 const MODAL_STYLES = {
   position: "fixed",
@@ -9,9 +9,10 @@ const MODAL_STYLES = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   backgroundColor: "#FFF",
-  padding: "50px",
+  padding: "40px",
   zIndex: 1000,
   display: "flex",
+  borderRadius: "20px",
 };
 
 const OVERLAY_STYLES = {
@@ -24,6 +25,17 @@ const OVERLAY_STYLES = {
   zIndex: 1000,
 };
 
+const CloseModalButton = styled(MdClose)`
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  z-index: 1000;
+`;
+
 const ContentModal = (props) => {
   if (!props.open) return null;
 
@@ -33,7 +45,7 @@ const ContentModal = (props) => {
       <div style={MODAL_STYLES}>
         {props.children}
         <div>
-          <button onClick={props.onClose}>Close Modal</button>
+          <CloseModalButton aria-label="Close modal" onClick={props.onClose} />
         </div>
       </div>
     </>,

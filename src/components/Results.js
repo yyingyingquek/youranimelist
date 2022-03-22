@@ -10,7 +10,6 @@ const ResultsContainer = styled.div`
   justify-content: center;
   max-width: 2000px;
   padding: 10px;
-  margin: 10px;
 `;
 
 const Results = (props) => {
