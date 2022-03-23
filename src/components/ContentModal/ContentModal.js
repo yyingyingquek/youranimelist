@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { MdClose } from "react-icons/md";
 import ThemeContext from "../../context/context-theme";
 
-
 const ModalStyle = styled.div`
   position: fixed;
   top: 50%;

@@ -9,6 +9,7 @@ const ResultsContainer = styled.div`
   align-content: space-around;
   justify-content: center;
   max-width: 2000px;
+  transition: all 0.5s ease;
 `;
 
 const Favourites = () => {

@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import Results from "./Results";
 import ThemeContext from "../context/context-theme";
+import styled from "styled-components";
+
+const PageContainer = styled.div`
+  transition: all 0.5s ease;
+`;
 
 const HomePage = () => {
   const { activeTheme } = useContext(ThemeContext);
@@ -35,9 +40,9 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div style={activeTheme}>
+    <PageContainer style={activeTheme}>
       <Results anime={topAnime} />
-    </div>
+    </PageContainer>
   );
 };
 

@@ -14,8 +14,8 @@ const theme = {
     color: "#484b6a",
   },
   dark: {
-    background: "#484b6a",
-    color: "#fafafa",
+    background: "#282c36",
+    color: "lavender",
   },
 };
 const GlobalStyle = styled.div`

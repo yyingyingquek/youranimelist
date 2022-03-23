@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import ContentModal from "./ContentModal/ContentModal";
+import { IoIosInformationCircle } from "react-icons/io";
 
 const IndivResultsStyle = styled.div`
   width: 330px;
@@ -41,6 +42,25 @@ const StyledButtonDiv = styled.div`
   display: flex;
   text-align: center;
   justify-content: center;
+`;
+
+const StyledInfoButton = styled(IoIosInformationCircle)`
+  cursor: pointer;
+  margin: 2px;
+`;
+
+const StyledButton = styled.button`
+  cursor: pointer;
+  margin: 2px;
+  text-align: center;
+  font-weight: 300;
+  border: 0.1em solid #9394a5;
+  color: #484b6a;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #ffffff;
+  }
 `;
 
 function ResultCard(props) {
@@ -89,6 +109,7 @@ function ResultCard(props) {
     }
   };
   // console.log(favAnime);
+
   return (
     <>
       <IndivResultsStyle>
@@ -100,13 +121,15 @@ function ResultCard(props) {
         <img src={props.imgSrc} alt="anime" onClick={openModal}></img>
         <br />
         <StyledButtonDiv>
-          <button onClick={openModal}>Information</button> <br />
+          <StyledInfoButton size={25} onClick={openModal} />
           {props.removeFromFav ? (
-            <button onClick={() => props.removeFromFav()}>Remove</button>
+            <StyledButton onClick={() => props.removeFromFav()}>
+              Remove
+            </StyledButton>
           ) : (
-            <button onClick={addFavAnime} disabled={favAnime}>
-              Add to Fav
-            </button>
+            <StyledButton onClick={addFavAnime} disabled={favAnime}>
+              Add Fav
+            </StyledButton>
           )}
         </StyledButtonDiv>
 
