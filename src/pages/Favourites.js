@@ -17,11 +17,16 @@ const Favourites = () => {
 
   // getting the array from local storage
   const localFav = JSON.parse(localStorage.getItem("favAnime"));
+  //   console.log(localFav);
   // setting state
   const [localFavAnime, setLocalFavAnime] = useState(localFav);
 
   const removeFromFav = (anime) => {
-    const newList = localFavAnime.filter((object) => object.id !== anime.id);
+    // console.log(localFavAnime.id);
+    // const newList = localFavAnime.filter(
+    //   (object, index) => object.id !== anime.id
+    // );
+    const newList = localFavAnime.splice(1);
     setLocalFavAnime(newList);
     localStorage.setItem("favAnime", JSON.stringify(newList));
     console.log(newList);
@@ -36,17 +41,17 @@ const Favourites = () => {
         japaneseName={anime.japaneseName}
         imgSrc={anime.imgSrc}
         synopsis={anime.synopsis}
-        status={anime.showStatus}
-        malRanking={anime.rank}
-        yearReleased={anime.yearBroadcast}
+        status={anime.status}
+        malRanking={anime.malRanking}
+        yearReleased={anime.yearReleased}
         url={anime.url}
         removeFromFav={removeFromFav}
       />
     );
   });
-  console.log(localFavAnime);
+  //   console.log(localFavAnime);
 
-  console.log(localFav.length);
+  //   console.log(localFav.length);
 
   return (
     <ResultsContainer style={activeTheme}>

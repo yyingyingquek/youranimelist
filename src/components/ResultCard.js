@@ -104,10 +104,10 @@ function ResultCard(props) {
       const parseAnime = JSON.parse(localFavAnime);
       parseAnime.push(animeObj);
       localStorage.setItem("favAnime", JSON.stringify(parseAnime));
-      console.log(parseAnime);
+      // console.log(parseAnime);
     }
   };
-
+  // console.log(favAnime);
   return (
     <>
       {/* <ResultsContainer> */}
@@ -118,9 +118,7 @@ function ResultCard(props) {
         <br />
         <button onClick={openModal}>Information</button> <br />
         {props.removeFromFav ? (
-          <button onClick={(anime) => props.removeFromFav(anime)}>
-            Remove
-          </button>
+          <button onClick={(animeObj) => props.removeFromFav(animeObj)}>Remove</button>
         ) : (
           <button onClick={addFavAnime} disabled={favAnime}>
             Add to Fav
