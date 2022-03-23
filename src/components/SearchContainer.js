@@ -8,8 +8,6 @@ const SearchContainerStyle = styled.form`
   alight-content: right;
   display: inline;
   position: relative;
-  top: -30px;
-  left: 450px;
 `;
 
 const SearchContainer = () => {
@@ -40,7 +38,7 @@ const SearchContainer = () => {
         url: searchShow.url,
       };
     });
-    setSearchAnime(filteredSearch);
+    setSearchAnime(filteredSearch.slice(0, 24));
   };
 
   useEffect(() => {

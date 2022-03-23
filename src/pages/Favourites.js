@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import ResultCard from "../components/ResultCard";
-// import Results from "../components/Results";
 import ThemeContext from "../context/context-theme";
 import styled from "styled-components";
 
@@ -49,9 +48,6 @@ const Favourites = () => {
       />
     );
   });
-  //   console.log(localFavAnime);
-
-  //   console.log(localFav.length);
 
   return (
     <ResultsContainer style={activeTheme}>

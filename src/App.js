@@ -18,7 +18,6 @@ const theme = {
     color: "#fafafa",
   },
 };
-
 const GlobalStyle = styled.div`
   margin: 0;
   padding: 0;

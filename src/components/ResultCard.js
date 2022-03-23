@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import ContentModal from "./ContentModal/ContentModal";
-// import { FaRegStar, FaStar } from "react-icons/fa";
-// import Favourites from "../pages/Favourites";
 
 const IndivResultsStyle = styled.div`
   width: 330px;
@@ -19,13 +17,13 @@ const StyledSynopsis = styled.p`
 
 const TestModalDiv = styled.div`
   justify-content: space-around;
-  margin: 0px 20px 00px 15px;
+  margin: 0px 20px 00px 5px;
 `;
 
 const StyledAnchor = styled.a`
   text-decoration: none;
   &:link {
-    color: #484b6a;
+    color: #9394a5;
   }
   &:hover {
     text-decoration: underline;
@@ -34,24 +32,16 @@ const StyledAnchor = styled.a`
     color: black;
   }
   &:visited {
-    color: #484b6a;
+    color: #9394a5;
     text-decoration: none;
   }
 `;
 
-// const BlankStar = styled(FaRegStar)`
-//   cursor: pointer;
-//   position: relative;
-//   left: 10px;
-//   top: 2px;
-// `;
-
-// const FilledStar = styled(FaStar)`
-//   cursor: pointer;
-//   position: relative;
-//   left: 10px;
-//   top: 2px;
-// `;
+const StyledButtonDiv = styled.div`
+  display: flex;
+  text-align: center;
+  justify-content: center;
+`;
 
 function ResultCard(props) {
   // open modal state
@@ -69,15 +59,6 @@ function ResultCard(props) {
 
   // state of Fav or not
   const [favAnime, setFavAnime] = useState(false);
-
-  // const addFavAnime = (newAnime) => {
-  //   const favList = [...favAnime, newAnime];
-  //   setFavAnime(favList);
-  // };
-  // click on Star to Favourites (change star fn)
-  // const addFavFn = () => {
-  //   setStar(true);
-  // };
 
   // passing in the entire object to save to local fav
   const animeObj = {
@@ -110,31 +91,25 @@ function ResultCard(props) {
   // console.log(favAnime);
   return (
     <>
-      {/* <ResultsContainer> */}
       <IndivResultsStyle>
-        <h3>{props.name}</h3>
-        <h4>{props.japaneseName}</h4>
-        <img src={props.imgSrc} alt="anime"></img>
+        <h4>
+          {props.name}
+          <br />
+          {props.japaneseName}
+        </h4>
+        <img src={props.imgSrc} alt="anime" onClick={openModal}></img>
         <br />
-        <button onClick={openModal}>Information</button> <br />
-        {props.removeFromFav ? (
-          <button onClick={(animeObj) => props.removeFromFav(animeObj)}>Remove</button>
-        ) : (
-          <button onClick={addFavAnime} disabled={favAnime}>
-            Add to Fav
-          </button>
-        )}
-        {/* {star ? (
-          <FilledStar
-            aria-label="Add to Favourites"
-            onClick={() => setStar(true)}
-          />
-        ) : (
-          <BlankStar
-            aria-label="Add to Favourites"
-            onClick={() => setStar(false)}
-          />
-        )} */}
+        <StyledButtonDiv>
+          <button onClick={openModal}>Information</button> <br />
+          {props.removeFromFav ? (
+            <button onClick={() => props.removeFromFav()}>Remove</button>
+          ) : (
+            <button onClick={addFavAnime} disabled={favAnime}>
+              Add to Fav
+            </button>
+          )}
+        </StyledButtonDiv>
+
         <ContentModal open={isOpen} onClose={closeModal}>
           <TestModalDiv>
             <p>
@@ -158,7 +133,6 @@ function ResultCard(props) {
           </div>
         </ContentModal>
       </IndivResultsStyle>
-      {/* </ResultsContainer> */}
     </>
   );
 }
