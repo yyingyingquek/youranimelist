@@ -27,6 +27,7 @@ const Results = (props) => {
         malRanking={anime.rank}
         yearReleased={anime.yearBroadcast}
         url={anime.url}
+        // removeFromFav={anime.removeFromFav}
       />
     );
   });
