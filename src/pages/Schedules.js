@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import Results from "../components/Results";
 import ThemeContext from "../context/context-theme";
 import styled from "styled-components";
-import { Controller } from "react-spring";
 
 const StyledDayContainer = styled.div`
   display: flex;
@@ -23,7 +22,7 @@ const StyledIndiv = styled.div`
 function Schedules() {
   const { activeTheme } = useContext(ThemeContext);
   const [scheduleAnime, setScheduleAnime] = useState("");
-  const [day, setDay] = useState("Sunday");
+  const [day, setDay] = useState("sunday");
   const [hasClicked, setHasClicked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -99,6 +98,7 @@ function Schedules() {
         <StyledIndiv onClick={onClickedDay}>Saturday</StyledIndiv>
       </StyledDayContainer>
       {hasClicked ? <Results anime={scheduleAnime} /> : ""}
+      {/* <Results anime={scheduleAnime} /> */}
     </>
   );
 }
