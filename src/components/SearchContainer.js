@@ -10,6 +10,28 @@ const SearchContainerStyle = styled.form`
   position: relative;
 `;
 
+const InputBoxStyle = styled.input`
+  margin: 5px;
+  padding: 5px;
+  border-radius: 15px;
+  width: 300px;
+`;
+
+const StyledButton = styled.button`
+  cursor: pointer;
+  margin: 2px;
+  padding: 4px;
+  text-align: center;
+  font-weight: 300;
+  border: 0.1em solid #9394a5;
+  color: #484b6a;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #ffffff;
+  }
+`;
+
 const SearchContainer = () => {
   const { activeTheme } = useContext(ThemeContext);
   const [input, setInput] = useState("");
@@ -62,13 +84,13 @@ const SearchContainer = () => {
     <div style={activeTheme}>
       <div>
         <SearchContainerStyle onSubmit={handleSubmit}>
-          <input
+          <InputBoxStyle
             value={input}
             onChange={handleInputChange}
             type="search"
             placeholder="Find an anime"
-          ></input>
-          <button type="submit">Search</button>
+          ></InputBoxStyle>
+          <StyledButton type="submit">Search</StyledButton>
         </SearchContainerStyle>
       </div>
       {hasSearched ? <Results anime={searchAnime} /> : ""}

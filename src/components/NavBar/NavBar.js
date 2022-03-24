@@ -21,9 +21,7 @@ const ToggleButton = styled.button`
   transition: all 0.5s ease;
 `;
 
-const H1Title = styled.h1`
-  transition: all 0.5s ease;
-`;
+// const H1Title = styled.h1``;
 
 const NavBar = (props) => {
   const { activeTheme } = useContext(ThemeContext);
@@ -39,12 +37,12 @@ const NavBar = (props) => {
     <header className={styles.navbar} style={activeTheme}>
       <ToggleButton onClick={props.handleButtonClick}>{icon}</ToggleButton>
       <nav>
-        <H1Title>
+        <h1>
           Welcome to{" "}
           <u>
             <i>YourAnimeList</i>
           </u>
-        </H1Title>
+        </h1>
         <ul>
           <li>
             <NavLink
@@ -60,6 +58,14 @@ const NavBar = (props) => {
               to="/current-season"
             >
               Current Season
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={(navData) => (navData.isActive ? styles.active : "")}
+              to="/schedule"
+            >
+              Schedule
             </NavLink>
           </li>
           <li>

@@ -7,6 +7,7 @@ import CurrentSeason from "./pages/CurrentSeason";
 import SearchContainer from "./components/SearchContainer";
 import styled from "styled-components";
 import Favourites from "./pages/Favourites";
+import Schedules from "./pages/Schedules";
 
 const theme = {
   light: {
@@ -18,6 +19,7 @@ const theme = {
     color: "lavender",
   },
 };
+
 const GlobalStyle = styled.div`
   margin: 0;
   padding: 0;
@@ -49,6 +51,7 @@ function App() {
             <Route path="/current-season" element={<CurrentSeason />}></Route>
             <Route path="/favourites" element={<Favourites />}></Route>
             <Route path="/search" element={<SearchContainer />}></Route>
+            <Route path="/schedule" element={<Schedules />}></Route>
           </Routes>
         </main>
       </ThemeContext.Provider>
