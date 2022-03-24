@@ -10,6 +10,10 @@ const IndivResultsStyle = styled.div`
   padding: 10px;
   margin: 10px;
   text-align: center;
+  &:hover {
+    color: #484b6a;
+    background-color: lavender;
+  }
 `;
 
 const StyledSynopsis = styled.p`
@@ -62,6 +66,10 @@ const StyledButton = styled.button`
     background-color: #ffffff;
   }
 `;
+
+const imgHover = {
+  cursor: "pointer",
+};
 
 function ResultCard(props) {
   // open modal state
@@ -118,7 +126,12 @@ function ResultCard(props) {
           <br />
           {props.japaneseName}
         </h4>
-        <img src={props.imgSrc} alt="anime" onClick={openModal}></img>
+        <img
+          src={props.imgSrc}
+          alt="anime"
+          style={imgHover}
+          onClick={openModal}
+        ></img>
         <br />
         <StyledButtonDiv>
           <StyledInfoButton size={25} onClick={openModal} />

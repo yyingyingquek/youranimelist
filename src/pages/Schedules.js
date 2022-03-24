@@ -13,6 +13,7 @@ const StyledDayContainer = styled.div`
 
 const StyledIndiv = styled.div`
   margin: 5px 30px;
+  cursor: pointer;
   &:hover {
     color: #484b6a;
     background-color: lavender;
