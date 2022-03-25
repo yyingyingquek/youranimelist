@@ -8,7 +8,7 @@ YourAnimeList is an anime app allows for users to see on first glace the top ani
 
 The app has several features such as home page, which shows the top anime of all time (based on MAL rankings), current season anime, anime schedules, favourites, search and dark mode.
 
-![features of app](/assets/readmeimages/img.png)
+![features of app](/readmeimages/img.png)
 
 ## Technologies Used
 
