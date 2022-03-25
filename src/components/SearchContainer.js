@@ -93,7 +93,7 @@ const SearchContainer = () => {
           <StyledButton type="submit">Search</StyledButton>
         </SearchContainerStyle>
       </div>
-      {hasSearched ? <Results anime={searchAnime} /> : ""}
+      {hasSearched ? <Results anime={searchAnime} /> : "Search for an anime!"}
     </div>
   );
 };

@@ -98,7 +98,11 @@ function Schedules() {
         <StyledIndiv onClick={onClickedDay}>Friday</StyledIndiv>
         <StyledIndiv onClick={onClickedDay}>Saturday</StyledIndiv>
       </StyledDayContainer>
-      {hasClicked ? <Results anime={scheduleAnime} /> : ""}
+      {hasClicked ? (
+        <Results anime={scheduleAnime} />
+      ) : (
+        "Click on the schedule to find out more!"
+      )}
       {/* <Results anime={scheduleAnime} /> */}
     </>
   );
