@@ -24,7 +24,7 @@ The app has several features such as home page, which shows the top anime of all
 ### Unsolved Problems
 
 1. Users are able to add the same anime to favourites twice
-2. Only able to remove the first item on the favorites list
+2. Only able to remove the first item on the favorites list - SOLVED! :)
 
 ### Acknowledgements
 

@@ -72,6 +72,7 @@ const imgHover = {
 };
 
 function ResultCard(props) {
+  // console.log(props);
   // open modal state
   const [isOpen, setIsOpen] = useState(false);
 
@@ -90,6 +91,7 @@ function ResultCard(props) {
 
   // passing in the entire object to save to local fav
   const animeObj = {
+    mal_id: props.mal_id,
     name: props.name,
     japaneseName: props.japaneseName,
     imgSrc: props.imgSrc,
@@ -102,8 +104,6 @@ function ResultCard(props) {
 
   // add to fav fn
   const addFavAnime = () => {
-    setFavAnime(true);
-
     const localFavAnime = localStorage.getItem("favAnime");
 
     if (!localFavAnime) {
@@ -115,6 +115,7 @@ function ResultCard(props) {
       localStorage.setItem("favAnime", JSON.stringify(parseAnime));
       // console.log(parseAnime);
     }
+    setFavAnime(true);
   };
   // console.log(favAnime);
 
@@ -136,7 +137,7 @@ function ResultCard(props) {
         <StyledButtonDiv>
           <StyledInfoButton size={25} onClick={openModal} />
           {props.removeFromFav ? (
-            <StyledButton onClick={() => props.removeFromFav()}>
+            <StyledButton onClick={() => props.removeFromFav(animeObj)}>
               Remove
             </StyledButton>
           ) : (

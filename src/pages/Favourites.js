@@ -17,26 +17,26 @@ const Favourites = () => {
 
   // getting the array from local storage
   const localFav = JSON.parse(localStorage.getItem("favAnime"));
-  //   console.log(localFav);
+  console.log(localFav);
   // setting state
   const [localFavAnime, setLocalFavAnime] = useState(localFav);
 
-  const removeFromFav = (anime) => {
-    // console.log(localFavAnime.id);
-    // const newList = localFavAnime.filter(
-    //   (object, index) => object.id !== anime.id
-    // );
-    const newList = localFavAnime.splice(1);
+  const removeFromFav = (id) => {
+    console.log(id.mal_id);
+    const newList = localFav.filter((element) => element.mal_id !== id.mal_id);
+    console.log(newList);
+    // const newList = localFavAnime.splice(1);
     setLocalFavAnime(newList);
     localStorage.setItem("favAnime", JSON.stringify(newList));
-    console.log(newList);
+    // console.log(newList);
   };
 
   // mapping over array to displaying on screen
-  const mapFavAnime = localFavAnime.map((anime, index) => {
+  const mapFavAnime = localFav.map((anime, index) => {
     return (
       <ResultCard
         key={index}
+        mal_id={anime.mal_id}
         name={anime.name}
         japaneseName={anime.japaneseName}
         imgSrc={anime.imgSrc}
@@ -52,13 +52,7 @@ const Favourites = () => {
 
   return (
     <ResultsContainer style={activeTheme}>
-      {localFav.length === 0 ? (
-        <ResultsContainer style={activeTheme}>
-          Add a favourite anime!
-        </ResultsContainer>
-      ) : (
-        <ResultsContainer style={activeTheme}>{mapFavAnime}</ResultsContainer>
-      )}
+      {localFav.length === 0 ? "Add a favourite anime!" : mapFavAnime}
     </ResultsContainer>
   );
 };
