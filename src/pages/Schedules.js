@@ -46,6 +46,7 @@ function Schedules() {
       // console.log(data);
       const filteredSchedule = data.data.map((anime) => {
         return {
+          mal_id: anime.mal_id,
           name: anime.title,
           japaneseName: anime.title_japanese,
           image: anime.images.webp.image_url,

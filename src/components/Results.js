@@ -14,12 +14,14 @@ const ResultsContainer = styled.div`
 `;
 
 const Results = (props) => {
+  console.log(props);
   const { activeTheme } = useContext(ThemeContext);
 
   const mapAnime = props.anime.map((anime, index) => {
     return (
       <ResultCard
         key={index}
+        mal_id={anime.mal_id}
         name={anime.name}
         japaneseName={anime.japaneseName}
         imgSrc={anime.image}

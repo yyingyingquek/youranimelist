@@ -15,6 +15,7 @@ const CurrentSeason = () => {
     console.log(data);
     const filteredCurrentSeasonAnime = data.data.map((searchAnime) => {
       return {
+        mal_id: searchAnime.mal_id,
         name: searchAnime.title,
         japaneseName: searchAnime.title_japanese,
         image: searchAnime.images.webp.image_url,

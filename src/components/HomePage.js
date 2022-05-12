@@ -21,6 +21,7 @@ const HomePage = () => {
     // console.log(data);
     const filteredTopAnime = data.data.map((topAnime) => {
       return {
+        mal_id: topAnime.mal_id,
         name: topAnime.title,
         japaneseName: topAnime.title_japanese,
         image: topAnime.images.webp.image_url,

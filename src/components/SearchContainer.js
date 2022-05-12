@@ -50,6 +50,7 @@ const SearchContainer = () => {
     const data = await response.json();
     const filteredSearch = data.data.map((searchShow) => {
       return {
+        mal_id: searchShow.mal_id,
         name: searchShow.title,
         japaneseName: searchShow.title_japanese,
         image: searchShow.images.webp.image_url,
