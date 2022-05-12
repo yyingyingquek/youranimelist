@@ -23,8 +23,8 @@ The app has several features such as home page, which shows the top anime of all
 
 ### Unsolved Problems
 
-1. Users are able to add the same anime to favourites twice
-2. Only able to remove the first item on the favorites list - SOLVED! :)
+1. Users are able to add the same anime to favourites twice - sort of solved as button can now be disabled. however, still thinking how to prevent button from being un-disabled on refresh
+2. Only able to remove the first item on the favorites list - SOLVED! :) - to pass in the entire object into the function, check using mal_id
 
 ### Acknowledgements
 

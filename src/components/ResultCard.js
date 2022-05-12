@@ -72,7 +72,7 @@ const imgHover = {
 };
 
 function ResultCard(props) {
-  // console.log(props);
+  const [disable, setDisable] = useState(false);
   // open modal state
   const [isOpen, setIsOpen] = useState(false);
 
@@ -104,6 +104,8 @@ function ResultCard(props) {
 
   // add to fav fn
   const addFavAnime = () => {
+    setFavAnime(true);
+    setDisable(true);
     const localFavAnime = localStorage.getItem("favAnime");
 
     if (!localFavAnime) {
@@ -113,11 +115,9 @@ function ResultCard(props) {
       const parseAnime = JSON.parse(localFavAnime);
       parseAnime.push(animeObj);
       localStorage.setItem("favAnime", JSON.stringify(parseAnime));
-      // console.log(parseAnime);
+      console.log(parseAnime);
     }
-    setFavAnime(true);
   };
-  // console.log(favAnime);
 
   return (
     <>
@@ -141,7 +141,7 @@ function ResultCard(props) {
               Remove
             </StyledButton>
           ) : (
-            <StyledButton onClick={addFavAnime} disabled={favAnime}>
+            <StyledButton onClick={addFavAnime} disabled={disable}>
               Add Fav
             </StyledButton>
           )}
